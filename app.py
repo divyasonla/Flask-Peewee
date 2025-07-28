@@ -1,4 +1,5 @@
 from flask import Flask
+from datetime import date
 from peewee import *
 # import config
 # import create_customer
@@ -17,40 +18,57 @@ class Customer(Model):
         database = db 
 
 class Invoice(Model):
-    id = AutoField()  # cleaner primary key
-    customer = ForeignKeyField(Customer, backref='invoices')
-    invoice_date = DateField()
+    id = AutoField()
+    customer = ForeignKeyField(Customer)
+    invoice_date = DateField(default=date.today) 
     total_amount = FloatField()
     created_at = DateTimeField()
 
     class Meta:
         database = db
 
+
 class InvoiceItem(Model):
-    item_id = IntegerField(primary_key=True)
-    invoice_id = ForeignKeyField(Invoice, backref="item", lazy_load=False)
-    description = CharField()
+    item_name = CharField(200, unique=True)
+    invoice = ForeignKeyField(Invoice, backref="items", lazy_load=False)
     quantity = IntegerField()
     unit_price = FloatField()
+    amount = FloatField()
     
     class Meta:
         database = db
 
-
+# Invoice.create_table()
+# db.connect()
+# db.create_tables([Invoice]) 
 
 def create_tables():
     db.connect()
-    db.create_tables([Customer, Invoice, InvoiceItem])
+    db.create_tables([InvoiceItem])
     db.close()
 
+# @app.before_request
+# def before_request():
+#     if db.is_closed():
+#         db.connect()
+
+# def create_tables():
+#     db.connect(reuse_if_open=True)
+#     db.create_tables([Customer, Invoice, InvoiceItem])
+#     print("Tables created successfully!")
 
 @app.route("/")
 def home():
     return "app"
+# Invoice.drop_table()
+# InvoiceItem.drop_table()
 
 # config.run()
 # create_customer.run()
+# Invoice.create_table()
+# InvoiceItem.create_table()
 
+print(db.get_tables())
 if __name__ == "__main__":
     print("app runing successfully!")
     app.run(debug=True)

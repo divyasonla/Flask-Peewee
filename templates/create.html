@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creating Customer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creating Customer</title>
+  <style>
+    #sugg {
+      border: 1px solid #ccc;
+      max-width: 200px;
+      background: #fff;
+      position: absolute;
+      z-index: 1000;
+    }
+    .sugg-item {
+      padding: 5px;
+      cursor: pointer;
+    }
+    .sugg-item:hover {
+      background-color: #eee;
+    }
+  </style>
 </head>
 <body>
-    <h3>Creating Customers</h3>
-    <form action="/customers" method="POST">
-        <label for="">Customer Name</label>
-        <input type="text" name="name" placeholder="Enter Customer name ">
-        <br><br>
-        <label for="">Join Date</label>
-        <input type="date" name="join_date">
-        <br><br>
-        <label for="">Salary</label>
-        <input type="text" name="salary" id="">
-        <br><br>
-        <button>Submit</button>
-    </form>
+  <h3>Creating Customers</h3>
+  <form action="/customers" method="POST">
+    <label for="">Customer Name</label>
+    <input type="text" name="name" placeholder="Enter Customer name ">
+    <div id="sugg"></div>
+    <br><br>
+
+    <label for="joinDate">Join Date</label>
+    <input type="date" name="join_date" id="joinDate">
+    <br><br>
+
+    <label for="salary">Salary</label>
+    <input type="text" name="salary" id="salary">
+    <br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  
 </body>
 </html>
-
-<!-- {% extends "base.html" %}
-{% block title %} New Customer {% endblock %}
-
-{% block content %}
- <form action="#" method="post">
-        <label for="">Customer Name</label>
-        <input type="text" name="name" placeholder="Enter Customer name ">
-        <br><br>
-        <label for="">Join Date</label>
-        <input type="date" name="join_date">
-        <br><br>
-        <label for="">Salary</label>
-        <input type="text" name="salary" id="">
-        <br><br>
-        <button>Submit</button>
-    </form>
-
-{% endblock %} -->

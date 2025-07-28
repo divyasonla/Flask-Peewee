@@ -8,9 +8,9 @@
 <body>
     <h3>Invoice creating </h3>
     <div>
-        <form method="post" action="/invoices">
+        <form method="post" action="/invoice">
             <label for="">Customer Id</label>
-            <input type="text" name="customer_id">
+            <input id="customerId" type="text" name="customer_id">
             <br><br>
             <label for="">Invoice Date</label>
             <input type="date" name="invoice_date">
@@ -18,11 +18,129 @@
             <label for="">Total Amount</label>
             <input type="text" name="total_amount">
             <br><br>
-            <label for="">created_at</label>
-            <input type="time" name="created_at">
+            <!-- <label for="">created_at</label>
+            <input type="datetime-local" name="created_at"> -->
             <br><br>
             <button>Submit</button>
         </form>
     </div>
+    <!-- <script>
+    const customer = ["Alice", "Amit", "Bobby", "Charlie", "David", "Eve", "Fiona"];
+    const searchBox = document.getElementById("customerId");
+    const sug = document.getElementById("sugg");
+
+    searchBox.addEventListener("input", () => {
+      const input = searchBox.value.toLowerCase();
+      sug.innerHTML = "";
+      if (input === "") return;
+
+      const filtered = customer.filter(name =>
+        name.toLowerCase().startsWith(input)
+      );
+
+      filtered.forEach(name => {
+        const div = document.createElement("div");
+        div.textContent = name;
+        div.classList.add("sugg-item");
+
+        div.addEventListener("click", () => {
+          searchBox.value = name;
+          sug.innerHTML = "";
+        });
+
+        sug.appendChild(div);
+      });
+    });
+  </script> -->
 </body>
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invoice</title>
+  <style>
+    #sugg {
+      border: 1px solid #ccc;
+      background: #fff;
+      position: absolute;
+      max-width: 200px;
+      z-index: 1000;
+    }
+    .sugg-item {
+      padding: 5px;
+      cursor: pointer;
+    }
+    .sugg-item:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <h3>Invoice Creating</h3>
+  <div>
+    <form method="post" action="/invoices">
+      <label for="customerName">Customer</label>
+      <input id="customerName" type="text" placeholder="Type customer name">
+      <input type="hidden" name="customer_id" id="customerId"> <!-- this goes to backend -->
+    -->
+      <!-- <div id="sugg"></div>
+      <br><br>
+
+      <label for="">Invoice Date</label>
+      <input type="date" name="invoice_date"><br><br>
+
+      <label for="">Total Amount</label>
+      <input type="text" name="total_amount"><br><br>
+
+      <label for="">Created At</label>
+      <input type="time" name="created_at"><br><br>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const customerList = [
+      { id: 1, name: "Alice" },
+      { id: 2, name: "Amit" },
+      { id: 3, name: "Bobby" },
+      { id: 4, name: "Charlie" },
+      { id: 5, name: "David" },
+      { id: 6, name: "Eve" },
+      { id: 7, name: "Fiona" }
+    ];
+
+    const nameInput = document.getElementById("customerName");
+    const idInput = document.getElementById("customerId");
+    const sugg = document.getElementById("sugg");
+
+    nameInput.addEventListener("input", () => {
+      const input = nameInput.value.toLowerCase();
+      sugg.innerHTML = "";
+
+      if (input === "") return;
+
+      const filtered = customerList.filter(c =>
+        c.name.toLowerCase().startsWith(input)
+      );
+
+      filtered.forEach(c => {
+        const div = document.createElement("div");
+        div.textContent = c.name;
+        div.classList.add("sugg-item");
+
+        div.addEventListener("click", () => {
+          nameInput.value = c.name;
+          idInput.value = c.id;  // store ID for backend
+          sugg.innerHTML = "";
+        });
+
+        sugg.appendChild(div);
+      });
+    });
+  </script>
+</body>
+</html>  -->
