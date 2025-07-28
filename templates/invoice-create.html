@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+</head>
+<body>
+    <h3>Invoice creating </h3>
+    <div>
+        <form method="post" action="/invoices">
+            <label for="">Customer Id</label>
+            <input type="text" name="customer_id">
+            <br><br>
+            <label for="">Invoice Date</label>
+            <input type="date" name="invoice_date">
+            <br><br>
+            <label for="">Total Amount</label>
+            <input type="text" name="total_amount">
+            <br><br>
+            <label for="">created_at</label>
+            <input type="time" name="created_at">
+            <br><br>
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>

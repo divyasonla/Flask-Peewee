@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Customer</title>
+</head>
+<body>
+    <h3>Creating Customers</h3>
+    <form action="/customers" method="POST">
+        <label for="">Customer Name</label>
+        <input type="text" name="name" placeholder="Enter Customer name ">
+        <br><br>
+        <label for="">Join Date</label>
+        <input type="date" name="join_date">
+        <br><br>
+        <label for="">Salary</label>
+        <input type="text" name="salary" id="">
+        <br><br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
+
+<!-- {% extends "base.html" %}
+{% block title %} New Customer {% endblock %}
+
+{% block content %}
+ <form action="#" method="post">
+        <label for="">Customer Name</label>
+        <input type="text" name="name" placeholder="Enter Customer name ">
+        <br><br>
+        <label for="">Join Date</label>
+        <input type="date" name="join_date">
+        <br><br>
+        <label for="">Salary</label>
+        <input type="text" name="salary" id="">
+        <br><br>
+        <button>Submit</button>
+    </form>
+
+{% endblock %} -->
